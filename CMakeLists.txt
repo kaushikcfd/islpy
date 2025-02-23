@@ -62,4 +62,22 @@ endif()
 
 install(TARGETS _isl LIBRARY DESTINATION .)
 
+# {{{ Generate stubs (.pyi files)
+
+if(NOT CMAKE_CROSSCOMPILING)
+  nanobind_add_stub(
+    _isl_stub
+    MODULE _isl
+    OUTPUT _isl.pyi
+    PYTHON_PATH "${CMAKE_INSTALL_PREFIX}/islpy"
+    DEPENDS _isl
+  )
+
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/_isl.pyi DESTINATION .)
+else()
+   message(WARNING "Skipping nanobind_add_stub: Stub generation is skipped when cross-compiling is enabled.")
+endif()
+
+# }}}
+
 # vim: sw=2

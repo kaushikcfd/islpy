@@ -312,6 +312,9 @@ def main():
           packages=find_packages(),
 
           python_requires="~=3.8",
+          install_requires=[
+              "typing_extensions>=4.0.0"  # needed by nanobind stubgen for py<3.12
+          ],
           setup_requires=setup_requires,
           extras_require={
               "test": ["pytest>=2"],

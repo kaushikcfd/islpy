@@ -15,6 +15,7 @@ requires = [
     # Added dynamically in setup.py if needed
     # "cmake>=3.18",
     # "ninja",
+    "typing_extensions>=4.0.0", # For stub generation
 ]
 build-backend = "setuptools.build_meta"
 
